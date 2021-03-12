@@ -21,7 +21,8 @@ public static void main(String[] args) throws Exception {
        a[i] = Integer.parseInt(br.readLine());
     }
 
-    int[] nge = solve(a);
+    // int[] nge = solve(a);
+    int[] nge = solve2(a);
     display(nge);
  }
 
@@ -61,5 +62,30 @@ public static void main(String[] args) throws Exception {
    
    return ngr;
  }
+ public static int[] solve2(int[] arr) {
+    int[] ngr = new int[arr.length ];
+    Stack<Integer> st = new Stack<>();
+    st.push(arr[arr.length - 1]);
+    ngr[arr.length - 1] = -1;
+    
+    for(int i = arr.length - 2; i >= 0; i--) {
+        // pop all smaller elements
+        while(st.size() != 0 && st.peek() < arr[i]) {
+            st.pop();
+        }
+        
+        // update your answer
+        if(st.size() == 0) {
+            ngr[i] = -1;
+        }
+        else {
+            ngr[i] = st.peek();
+        }
+        
+        // push current element into stack
+        
+        st.push(arr[i]);
+   }
+   return ngr;
 
 }
