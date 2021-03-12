@@ -32,11 +32,11 @@ public class DuplicateBrackets {
             }
         }
         
-        while(st.size() != 0) {
-            if(st.peek() == '(' )
-                return true;
-            st.pop();
-        }
+        // while(st.size() != 0) {
+        //     if(st.peek() == '(' )
+        //         return true;
+        //     st.pop();
+        // }
         return false;
     }
 
